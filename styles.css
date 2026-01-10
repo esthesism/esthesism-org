@@ -325,6 +325,51 @@ footer p {
     opacity: 0.9;
 }
 
+footer a {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0s ease 0.6s, transform 0.3s ease;
+    z-index: 999;
+    background: var(--blue-light);
+    color: #ffffff;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark-mode #back-to-top {
+    color: #000000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease, visibility 0s ease 0s, transform 0.3s ease;
+}
+
+#back-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--blue-accent);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-container {
