@@ -8,6 +8,7 @@
         content="Esthesism - An ontological worldview proposing that the universe is a living complex adaptive organism engaged in the process of lovingly knowing itself through distributed perceptive consciousness.">
     <meta name="keywords" content="Esthesism, philosophy, consciousness, panpsychism, process philosophy, ontology">
     <title>Esthesism - Perception as Universal Self-Knowing</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -25,10 +26,39 @@
                 <li><a href="#practice">Practice</a></li>
                 <li><a href="#applications">Applications</a></li>
             </ul>
+            <button class="audio-toggle" aria-label="Toggle audio player" title="Toggle audio player">
+                <span class="material-symbols-outlined audio-icon-on">volume_up</span>
+                <span class="material-symbols-outlined audio-icon-off">no_sound</span>
+            </button>
             <button class="dark-mode-toggle" aria-label="Toggle dark mode">
                 <span class="sun">☀️</span>
                 <span class="moon">🌙</span>
             </button>
+        </div>
+        <!-- Audio Player Bar -->
+        <div id="audio-player" class="audio-player" aria-label="Audio player">
+            <div class="audio-container">
+                <button class="audio-play-btn" aria-label="Play audio" title="Listen to this page">
+                    <span class="audio-icon-play">▶</span>
+                    <span class="audio-icon-pause">⏸</span>
+                </button>
+                <div class="audio-progress-section">
+                    <div class="audio-label">Listen to this page</div>
+                    <div class="audio-progress-bar">
+                        <div class="audio-progress-fill"></div>
+                    </div>
+                    <div class="audio-time">0:00 / 0:00</div>
+                </div>
+                <button class="audio-voice-btn" aria-label="Switch voice" title="Switch voice">
+                    <span class="audio-voice-value">Female</span>
+                </button>
+                <button class="audio-speed-btn" aria-label="Change playback speed" title="Playback speed">
+                    <span class="audio-speed-value">1x</span>
+                </button>
+            </div>
+            <audio id="audio-element" preload="metadata">
+                <source id="audio-source" src="audio/esthesism-female.mp3" type="audio/mpeg">
+            </audio>
         </div>
     </nav>
 
@@ -44,8 +74,8 @@
         <section id="definition" class="section">
             <h2>Definition</h2>
             <p><strong>Esthesism</strong> /ĕs-thĕ-sĭz″əm/ </p>
-            <p>From Greek αἴσθησις, <em>aisthēsis</em> - meaning "sense, perception"</p>
-            <p>An <a href="https://en.wikipedia.org/wiki/Ontology" target="_blank">ontological</a>
+            <p>From the Greek αἴσθησις, <em>aisthēsis</em> - meaning "sense, perception"</p>
+            <p>Esthesism is an <a href="https://en.wikipedia.org/wiki/Ontology" target="_blank">ontological</a>
                 worldview proposing that the universe is a living <a
                     href="https://en.wikipedia.org/wiki/Complex_adaptive_system" target="_blank">complex adaptive</a>
                 organism engaged in the process of lovingly knowing itself through distributed perceptive <a

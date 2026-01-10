@@ -167,6 +167,7 @@ a:hover {
     font-weight: 500;
     transition: color 0.3s ease;
     line-height: 1;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -178,23 +179,67 @@ a:hover {
     font-weight: 600;
 }
 
+.audio-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.audio-toggle .material-symbols-outlined {
+    font-size: 1.4rem;
+    vertical-align: -0.2em;
+}
+
+.audio-toggle:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.audio-toggle .audio-icon-on {
+    display: inline;
+}
+
+.audio-toggle .audio-icon-off {
+    display: none;
+}
+
+.audio-toggle.off .audio-icon-on {
+    display: none;
+}
+
+.audio-toggle.off .audio-icon-off {
+    display: inline;
+}
+
 .dark-mode-toggle {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
+    padding: 0;
     transition: transform 0.3s ease;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1;
 }
 
 .dark-mode-toggle:hover {
     transform: scale(1.1);
 }
 
+.dark-mode-toggle .sun,
+.dark-mode-toggle .moon {
+    font-size: 1.25rem;
+    vertical-align: -0.05em;
+}
+
 .dark-mode-toggle .sun {
-    display: block;
+    display: inline;
 }
 
 .dark-mode-toggle .moon {
@@ -206,7 +251,7 @@ body.dark-mode .dark-mode-toggle .sun {
 }
 
 body.dark-mode .dark-mode-toggle .moon {
-    display: block;
+    display: inline;
 }
 
 /* Hero Section */
@@ -370,8 +415,153 @@ body.dark-mode #back-to-top {
     background: var(--blue-accent);
 }
 
+/* Audio Player Bar */
+.audio-player {
+    background: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.audio-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.audio-play-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--blue-light);
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.audio-play-btn:hover {
+    background: var(--blue-accent);
+    transform: scale(1.05);
+}
+
+.audio-icon-pause {
+    display: none;
+}
+
+.audio-player.playing .audio-icon-play {
+    display: none;
+}
+
+.audio-player.playing .audio-icon-pause {
+    display: block;
+}
+
+.audio-progress-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.audio-label {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-time {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 0.25rem;
+}
+
+.audio-progress-bar {
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.audio-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--blue-accent);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.audio-voice-btn,
+.audio-speed-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    flex-shrink: 0;
+    min-width: 32px;
+    text-align: center;
+}
+
+.audio-voice-btn:hover,
+.audio-speed-btn:hover {
+    border-color: var(--blue-accent);
+    background: rgba(44, 95, 127, 0.1);
+}
+
+body.dark-mode .audio-voice-btn:hover,
+body.dark-mode .audio-speed-btn:hover {
+    background: rgba(109, 179, 217, 0.15);
+}
+
+.audio-hide-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.25rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.audio-hide-btn .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.audio-hide-btn:hover {
+    opacity: 1;
+    color: var(--text-color);
+}
+
+.audio-player.hidden {
+    display: none;
+}
+
+#audio-element {
+    display: none;
+}
+
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-container {
         position: relative;
     }
@@ -382,8 +572,12 @@ body.dark-mode #back-to-top {
         margin-left: auto;
     }
 
-    .dark-mode-toggle {
+    .audio-toggle {
         order: 3;
+    }
+
+    .dark-mode-toggle {
+        order: 4;
     }
 
     .logo {
@@ -449,6 +643,20 @@ body.dark-mode #back-to-top {
         padding: 0 1rem;
     }
 
+    .audio-container {
+        padding: 0.5rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .audio-label {
+        font-size: 0.75rem;
+    }
+
+    .audio-play-btn {
+        width: 32px;
+        height: 32px;
+    }
+
     .see-also-list {
         grid-template-columns: 1fr;
     }
@@ -470,6 +678,21 @@ body.dark-mode #back-to-top {
     .nav-container {
         padding: 1rem;
     }
+
+    .audio-container {
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .audio-voice-btn,
+    .audio-speed-btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    .audio-time {
+        font-size: 0.7rem;
+    }
 }
 
 /* Smooth Scrolling Enhancement */
@@ -482,7 +705,8 @@ body.dark-mode #back-to-top {
 /* Print Styles */
 @media print {
     #nav,
-    footer {
+    footer,
+    .audio-player {
         display: none;
     }
 
